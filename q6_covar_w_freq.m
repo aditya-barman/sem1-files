@@ -92,6 +92,6 @@ fprintf('Co-variance between the marks in Mathematics and the marks in Physics i
 
 % ========================== OUTPUT ==================================
 
-% Correlation coefficient between the marks in Mathematics and the marks in Physics is: -0.7546
+% Co-variance between the marks in Mathematics and the marks in Physics is: -15910
 
 % ====================================================================
