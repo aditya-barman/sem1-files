@@ -14,23 +14,26 @@ f_vals = [0 0 0 2 4 4
 3 5 4 0 0 0];
 
 % initializing upper and lower bounds for x & y
-up_bd_xy = [99 89 79 69 59 49];
-lw_bd_xy = [90 80 70 60 50 40];
+up_bd_x = [49 59 69 79 89 99];
+up_bd_y = [99 89 79 69 59 49];
+lw_bd_x = [40 50 60 70 80 90];
+lw_bd_y = [90 80 70 60 50 40];
 
-% initialiazing midpts and assumed means (both same for x & y)
-midpts_xy = (up_bd_xy + lw_bd_xy) / 2;
+% initialiazing midpts and assumed means (same for x & y)
+midpts_x = (up_bd_x + lw_bd_x) / 2;
+midpts_y = (up_bd_y + lw_bd_y) / 2;
 mean_asmd_xy = 74.5;
 % obtaining factor from subtraction from assumed mean
 diff_factor = 10;
 
-% calculating u & v vals (same for u & v)
+% calculating u & v vals
 u_vals = zeros(1, 6);
 
 for i = 1:6
-    u_vals(i) = ((midpts_xy(i) - mean_asmd_xy) / diff_factor);
+    u_vals(i) = ((midpts_x(i) - mean_asmd_xy) / diff_factor);
 end
 
-v_vals = u_vals;
+v_vals = u_vals(end:-1:1);
 
 % initializing a 6x6 zero matrix to store fuv values
 fuv = zeros(6, 6);
@@ -50,7 +53,7 @@ fv_sq = zeros(1, 6);
 f_uv = 0;
 
 %for u
-f_u = [7 17 25 23 20 10]; % given
+f_u = [7 15 25 23 20 10]; % given
 fu = zeros(1, 6);
 fu_sq = zeros(1, 6);
 
@@ -84,14 +87,15 @@ fu_sum_sq = fu_sum ^ 2;
 fv_sum_sq = fv_sum ^ 2;
 
 % calculating co-variance between x & y
-covariance = (n*f_uv) - (fu_sum*fv_sum);
+corr_coeff_num = (n*f_uv) - (fu_sum*fv_sum);
+covar_xy = corr_coeff_num/100;
 % corr_coeff_denom = (sqrt((n*fu_sq_sum)-fu_sum_sq))*(sqrt((n*fv_sq_sum)-fv_sum_sq));
 % corr_coeff = corr_coeff_num / corr_coeff_denom;
 
-fprintf('Co-variance between the marks in Mathematics and the marks in Physics is: %.f\n', covariance);
+fprintf('Co-variance between the marks in Mathematics and the marks in Physics is: %.4f\n', covar_xy);
 
 % ========================== OUTPUT ==================================
 
-% Co-variance between the marks in Mathematics and the marks in Physics is: -15910
+% Co-variance between the marks in Mathematics and the marks in Physics is: 160.2000
 
 % ====================================================================
