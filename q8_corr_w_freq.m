@@ -93,8 +93,8 @@ corr_coeff = corr_coeff_num / corr_coeff_denom;
 
 fprintf('Correlation coefficient between the marks in Mathematics and the marks in Physics is: %.4f\n', corr_coeff);
 
-% ========================== OUTPUT ==================================
+% ====================== OUTPUT ==============================
 
 % Correlation coefficient between the marks in Mathematics and the marks in Physics is: 0.7686
 
-% ====================================================================
+% ============================================================

@@ -94,8 +94,8 @@ covar_xy = corr_coeff_num/100;
 
 fprintf('Co-variance between the marks in Mathematics and the marks in Physics is: %.4f\n', covar_xy);
 
-% ========================== OUTPUT ==================================
+% ====================== OUTPUT ==============================
 
 % Co-variance between the marks in Mathematics and the marks in Physics is: 160.2000
 
-% ====================================================================
+% ============================================================
